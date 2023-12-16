@@ -1,4 +1,4 @@
-## Q. Why we use hooks in react ?
+### Q. Why we use hooks in react ?
 In React, Hooks are special functions that allow functional components to have state and side effects.
 Before the introduction of hooks, state and lifecycle methods were primarily used in class components.
 Hooks provide a more concise and expressive way to manage state, side effects, and other React features in functional components.
@@ -15,9 +15,20 @@ Here are some key reasons why hooks are used in React:
 5. #### Compatibility with Functional Programming:
 
 
+---
+
+#### Q. Can we use Hooks inside class component ?
+No
+
+--
+
+
 ## Q. Why we use useEffect hooks in react ?
 In React, the useEffect hook is used to perform side effects in functional components. 
 Side effects in React typically include **data fetching**, **subscriptions**, **manual DOM manipulations**, or any other operation that involves interacting with the outside world.
+used as **lifecycle methods** in functional components.
+
+Note:- useEeffect kab kab chalega ? => jab bi component banegi, update hogi, koi bi state update hogi, props ho, 
 
 Here are some key reasons why useEffect is important:
 
