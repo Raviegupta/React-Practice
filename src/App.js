@@ -6,6 +6,7 @@ import UseEffectHook2 from './Hooks/UseEffectHook/UseEffectHook2';
 import UseEffectHook3 from './Hooks/UseEffectHook/UseEffectHook3';
 import UseEffectAPI from './Hooks/UseEffectHook/UseEffectAPI';
 import UseEffectWeatherAPI from './Hooks/UseEffectHook/UseEffectWeatherAPI';
+import UseEffectCleanUp from './Hooks/UseEffectHook/UseEffectCleanUp';
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
       {/* <UseEffectHook2 /> */}
       {/* <UseEffectHook3 /> */}
       {/* <UseEffectAPI /> */}
-      <UseEffectWeatherAPI />
+      {/* <UseEffectWeatherAPI /> */}
+      <UseEffectCleanUp />
     </div>
   );
 }
