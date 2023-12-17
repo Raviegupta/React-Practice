@@ -15,7 +15,7 @@ const UseEffectHook2 = () => {
 
   return (
     <div>
-      <h1>UseEffectHook in practice: Calling useEffect for specific</h1>
+      <h1>UseEffectHook in practice: useEffect with dependency</h1>
       <h1>count: {count},  data: {data}</h1>
       <button onClick={()=> setCount(count+1)}>update counter</button>
       <button onClick={()=> setData(data+1)}>update counter</button>
