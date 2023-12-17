@@ -51,3 +51,7 @@ Here are some key reasons why useEffect is important:
     fetchData();
     }, []);
     ```
+5. #### Cleanup Operations: (useEffect k first argument i.e callback fun me ek function de sakte h, isi ko cleanup function bolte h)
+    - We can return a cleanup function from useEffect to perform cleanup operations, such as unsubscribing from subscriptions or releasing resources or stopping the timer when the component is unmounted.
+    ex:- socket.connect() me socket.disconnect function return karna
+         setInterval me clearInterval() function return karna
