@@ -1,0 +1,14 @@
+currency converter :-
+https://api.frankfurter.app/latest?amount=100&from=USD&to=INR
+
+
+weather api
+https://geocoding-api.open-meteo.com/v1/search?name=indore
+
+
+lamhe movie api
+http://www.omdbapi.com/?i=tt3896198&apikey=cf49e0c7&s=lamhe
+
+
+github users
+https://api.github.com/users
