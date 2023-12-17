@@ -11,13 +11,13 @@ import UseEffectCleanUp from './Hooks/UseEffectHook/UseEffectCleanUp';
 function App() {
   return (
     <div className="App">
-      {/* <UseStateHook /> */}
+      <UseStateHook />
       {/* <UseEffectHook /> */}
       {/* <UseEffectHook2 /> */}
       {/* <UseEffectHook3 /> */}
       {/* <UseEffectAPI /> */}
       {/* <UseEffectWeatherAPI /> */}
-      <UseEffectCleanUp />
+      {/* <UseEffectCleanUp /> */}
     </div>
   );
 }
