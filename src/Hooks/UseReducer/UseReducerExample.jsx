@@ -1,5 +1,6 @@
 import React, { useReducer } from 'react'
 
+// Reducer function
 const reducer = (state, action) => {
     if(action.type === 'inc') {
         return {

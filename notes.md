@@ -110,7 +110,7 @@ useReducer:- const [state,      dispatch] = useReducer(reducer, {count: 0, color
                                                                  like initial value of state
 ```
      
-Note:- dispatch func `action` dispatch karega & state ko update karega, hume dispatch func ko elk unique identity deni padegi taki wo particular state ko update kare
+Note:- dispatch func `action` dispatch karega & state ko update karega, hume dispatch func ko ek unique identity deni padegi taki wo particular state ko update kare
 
 ```
 const reducer = (state, action) => {
@@ -123,4 +123,21 @@ const reducer = (state, action) => {
     return state;    // for safety jab koi return ni hoga to undefined return na kare isliye `return state` laga dete h
 }
 ```
-Note:- Always remember, ye reducer function kuch na kuch return karega, if we have not returned anything then it will retuurn undefined
+Note:- Always remember, ye reducer function kuch na kuch return karega, if we have not returned anything then it will return undefined
+
+---
+
+## Q. What is useReducer Hook in react ?
+The useReducer hook in React is a `state management hook` that is an alternative to the more commonly used useState hook, especially when dealing with complex state logic in our components. It is inspired by the Redux library's approach to state management.
+
+basic overview of how useReducer works:
+
+#### 1. Reducer Function:
+    - The key concept of useReducer is the "reducer" function.
+    - This function takes the current state and an action as arguments and returns the new state based on that action. 
+    - The reducer function follows the signature: (state, action) => newState
+#### 2. Dispatch Function:
+    - The first element is the `current state`, and the second element is a dispatch function.
+    - The dispatch function is used to dispatch actions to the reducer, triggering state updates.
+#### 3. Usage
+    - When an action is dispatched using dispatch(action), the reducer function is called with the current state and the action. The reducer determines how the state should change based on the action and returns the new state.
