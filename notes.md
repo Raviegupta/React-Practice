@@ -32,7 +32,7 @@ Note:- useEeffect kab kab chalega ? => jab bi component banegi, update hogi, koi
 Here are some key reasons why useEffect is important:
 
 1. #### Handling Side Effects:
-    -  such as fetching data from an API.
+    - such as fetching data from an API.
 2. #### Lifecycle Methods Replacement: 
     - In class components, lifecycle methods like componentDidMount, componentDidUpdate, and componentWillUnmount were used to manage side effects. useEffect combines the functionality of these lifecycle methods in functional components.
 3. #### Avoiding Infinite Loops:
@@ -132,12 +132,12 @@ The useReducer hook in React is a `state management hook` that is an alternative
 
 basic overview of how useReducer works:
 
-#### 1. Reducer Function:
+1. #### Reducer Function:
     - The key concept of useReducer is the "reducer" function.
     - This function takes the current state and an action as arguments and returns the new state based on that action. 
     - The reducer function follows the signature: (state, action) => newState
-#### 2. Dispatch Function:
+2. #### Dispatch Function:
     - The first element is the `current state`, and the second element is a dispatch function.
     - The dispatch function is used to dispatch actions to the reducer, triggering state updates.
-#### 3. Usage
+3. #### Usage:
     - When an action is dispatched using dispatch(action), the reducer function is called with the current state and the action. The reducer determines how the state should change based on the action and returns the new state.
