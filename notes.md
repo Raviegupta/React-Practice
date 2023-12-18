@@ -15,12 +15,11 @@ Here are some key reasons why hooks are used in React:
 5. #### Compatibility with Functional Programming:
 
 
----
 
 #### Q. Can we use Hooks inside class component ?
 No
 
---
+---
 
 
 ## Q. Why we use useEffect hooks in react ?
@@ -55,3 +54,49 @@ Here are some key reasons why useEffect is important:
     - We can return a cleanup function from useEffect to perform cleanup operations, such as unsubscribing from subscriptions or releasing resources or stopping the timer when the component is unmounted.
     ex:- socket.connect() me socket.disconnect function return karna
          setInterval me clearInterval() function return karna
+
+---
+
+## Q. Why we use useState hooks in react ?
+In React, the useState hook is used to add state management to functional components. Before the introduction of hooks, state was primarily managed in class components using the `this.state` and `this.setState` syntax. The useState hook allows functional components to have local state, making it easier to manage and update data within the component.
+
+Here are some reasons why useState is used:
+
+1. #### Stateful Logic in Functional Components: 
+    - With useState, functional components can now maintain and update their state, allowing for more complex and dynamic behavior.
+      ```
+        import React, { useState } from 'react';
+
+        const ExampleComponent = () => {
+        // Declare a state variable named "count" with an initial value of 0
+        const [count, setCount] = useState(0);
+
+        // Use the state variable in the component
+        return (
+            <div>
+            <p>Count: {count}</p>
+            <button onClick={() => setCount(count + 1)}>
+                Increment
+            </button>
+            </div>
+        );
+        };
+      ```
+2. #### Functional Updates:
+    - useState allows us to pass a function to setCount that receives the current state and returns the new state. This is especially useful when the new state depends on the current state.
+    ```
+    const [count, setCount] = useState(0);
+
+    // Functional update to increment the count
+    const increment = () => {
+    setCount((prevCount) => prevCount + 1);
+    };
+    ```
+3. #### Multiple State Variables:
+    - We can use useState multiple times within a component to manage multiple independent pieces of state. This helps in organizing and isolating different aspects of the component's state.
+    ```
+    const [name, setName] = useState('');
+    const [age, setAge] = useState(0);
+    ```
+4. #### Initialization with Props:
+    - We can initialize state based on props, allowing the component to be more flexible and respond to external changes.
