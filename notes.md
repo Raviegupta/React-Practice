@@ -106,11 +106,11 @@ Here are some reasons why useState is used:
 Syntax Similarity b/w useState & useReducer 
 ```
 useState  :- const [BasicState, function] = useState(initialState)
-useReducer:- const [BasicState, dispatch] = useReducer(reducer, {count: 0, color: true }) 
+useReducer:- const [state,      dispatch] = useReducer(reducer, {count: 0, color: true }) 
                                                                  like initial value of state
 ```
      
-Note:- dispatch func `action` dispatch karega & BasicState ko update karega, hume dispatch func ko elk unique identity deni padegi taki wo particular state ko update kare
+Note:- dispatch func `action` dispatch karega & state ko update karega, hume dispatch func ko elk unique identity deni padegi taki wo particular state ko update kare
 
 ```
 const reducer = (state, action) => {
