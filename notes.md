@@ -100,3 +100,27 @@ Here are some reasons why useState is used:
     ```
 4. #### Initialization with Props:
     - We can initialize state based on props, allowing the component to be more flexible and respond to external changes.
+
+---
+
+Syntax Similarity b/w useState & useReducer 
+```
+useState  :- const [BasicState, function] = useState(initialState)
+useReducer:- const [BasicState, dispatch] = useReducer(reducer, {count: 0, color: true }) 
+                                                                 like initial value of state
+```
+     
+Note:- dispatch func `action` dispatch karega & BasicState ko update karega, hume dispatch func ko elk unique identity deni padegi taki wo particular state ko update kare
+
+```
+const reducer = (state, action) => {
+    if(action.type === 'inc') {
+        return {
+            ...state,
+            count: state.count+1
+        }
+    }
+    return state;    // for safety jab koi return ni hoga to undefined return na kare isliye `return state` laga dete h
+}
+```
+Note:- Always remember, ye reducer function kuch na kuch return karega, if we have not returned anything then it will retuurn undefined
