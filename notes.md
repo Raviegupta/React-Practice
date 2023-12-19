@@ -142,14 +142,14 @@ basic overview of how useReducer works:
 3. #### Usage:
     - When an action is dispatched using dispatch(action), the reducer function is called with the current state and the action. The reducer determines how the state should change based on the action and returns the new state.
 
-    ## Why we use useReducer hooks in react ?
-    The useReducer hook in React is used for managing complex state logic in functional components. While the more commonly used useState hook is suitable for managing simpler state, useReducer becomes beneficial when dealing with state logic that involves multiple sub-values or when the next state depends on the previous state.
+## Q. Why we use useReducer hooks in react ?
+The useReducer hook in React is used for managing complex state logic in functional components. While the more commonly used useState hook is suitable for managing simpler state, useReducer becomes beneficial when dealing with state logic that involves multiple sub-values or when the next state depends on the previous state.
 
-    Here are some key reasons why useReducer Hook is important:
+Here are some key reasons why useReducer Hook is important:
 
-    1. #### Complex State Logic:
-    2. #### State Dependencies:
-        - When the next state depends on the previous state or when updating one part of the state relies on the values of other parts, useReducer allows you to express this dependency more explicitly within the reducer function.
-    3. #### Avoiding Prop Drilling:
-        - In certain cases, when state management becomes more complex, prop drilling (passing down state through multiple layers of components) might become cumbersome. useReducer provides a way to manage state at a higher level in the component tree without passing it down explicitly.
+1. #### Complex State Logic:
+2. #### State Dependencies:
+    - When the next state depends on the previous state or when updating one part of the state relies on the values of other parts, useReducer allows you to express this dependency more explicitly within the reducer function.
+3. #### Avoiding Prop Drilling:
+    - In certain cases, when state management becomes more complex, prop drilling (passing down state through multiple layers of components) might become cumbersome. useReducer provides a way to manage state at a higher level in the component tree without passing it down explicitly.
     
