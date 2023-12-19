@@ -155,3 +155,8 @@ Here are some key reasons why useReducer Hook is important:
     
 ---
 
+What is memoization ?
+Memoization is an optimization technique that can be used to reduce time-consuming calculations by saving previous input to something called cache and returning the result from it.
+
+- Memoization can be applied to various types of functions, especially those that involve repetitive or expensive computations. It's a powerful optimization technique that can significantly improve the performance of certain algorithms or functions.
+

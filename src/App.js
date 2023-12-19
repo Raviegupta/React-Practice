@@ -12,6 +12,8 @@ import UseEffectCleanUp from './Hooks/UseEffectHook/UseEffectCleanUp';
 import UseReducerExample from './Hooks/UseReducer/UseReducerExample';
 import UseReducerExSwitch from './Hooks/UseReducer/UseReducerExSwitch';
 
+import UseMemoHook from './Hooks/UseMemoHook/UseMemoHook';
+
 function App() {
   return (
     <div className="App">
@@ -24,7 +26,9 @@ function App() {
       {/* <UseEffectCleanUp /> */}
 
       {/* <UseReducerExample />    */}
-      <UseReducerExSwitch />   
+      {/* <UseReducerExSwitch />    */}
+
+      <UseMemoHook />
     </div>
   );
 }
