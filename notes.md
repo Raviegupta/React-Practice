@@ -160,3 +160,15 @@ Memoization is an optimization technique that can be used to reduce time-consumi
 
 - Memoization can be applied to various types of functions, especially those that involve repetitive or expensive computations. It's a powerful optimization technique that can significantly improve the performance of certain algorithms or functions.
 
+## Q. why we use useMemo Hook in react ?
+In React, the useMemo hook is used to memoize the result of a function so that the function is not re-executed unless its dependencies have changed. This can be particularly useful for optimizing performance in situations where a function's result is computationally expensive to calculate and its dependencies are static or change infrequently.
+
+Here are some reasons why you might use the useMemo hook in React:
+
+1. #### Performance Optimization:
+2. #### Avoiding Unnecessary Calculations:
+3. #### Preventing Unnecessary Re-renders:
+4. #### Complex Computations or Data Processing:
+
+---
+
