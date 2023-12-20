@@ -225,6 +225,5 @@ React Router is a `popular routing library` for React that allows us to handle `
 Here's a brief overview of how React Router works and how we can achieve routing in a React application using React Router:
 
 1. Installation: we can install React Router using npm or yarn:
-
-- #### using npm:     npm install react-router-dom
-- #### using yarn:    yarn add react-router-dom
+    `using npm:     npm install react-router-dom
+    using yarn:    yarn add react-router-dom`
