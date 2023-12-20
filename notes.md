@@ -188,3 +188,10 @@ Here are some reasons why you might use the useCallback hook in React:
 2. #### Optimizing Performance:
 
 ---
+
+## What is context API ?
+In React, the Context API is a feature that allows us to share data between components without having to explicitly pass props through every level of the component tree.
+- It's designed to solve the problem of "prop drilling," where we have to pass data through multiple layers of components that don't need the data directly but are required to pass it down to child components.
+
+The Context API consists of two main parts:
+

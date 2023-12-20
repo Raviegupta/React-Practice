@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {createContext, useState} from 'react';
 import './App.css';
 import UseStateHook from './Hooks/UseStateHook/UseStateHook';
 
@@ -17,9 +17,24 @@ import UseMemoHook from './Hooks/UseMemoHook/UseMemoHook';
 import Parent from './Hooks/UseCallBackHook/Parent';
 import Child from './Hooks/UseCallBackHook/Child';
 
+import ContextAPIchild from './Hooks/ContextAPI/ContextAPIchild';
+import ContextAPIotherchild from './Hooks/ContextAPI/ContextAPIotherchild';
+export const GlobalInfo = createContext();
+
+
 function App() {
+
+  const [color, setColor] = useState('green')
+  const [date, setDate] = useState('wednesday')
+
+  const getDate = (data) => {
+    console.warn(data)
+    setDate(data);
+  }
+
   return (
-    <div className="App">
+    <GlobalInfo.Provider value={{ color: color, getDate: getDate }} >
+      <div className="App">
       {/* <UseStateHook /> */}
       {/* <UseEffectHook /> */}
       {/* <UseEffectHook2 /> */}
@@ -33,8 +48,13 @@ function App() {
 
       {/* <UseMemoHook /> */}
 
-      <Parent />
+      {/* <Parent /> */}
+
+      <h1>App component: {date}</h1>
+      <ContextAPIchild />
+      <ContextAPIotherchild />
     </div>
+    </GlobalInfo.Provider>
   );
 }
 
