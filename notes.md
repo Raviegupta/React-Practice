@@ -226,5 +226,5 @@ Here's a brief overview of how React Router works and how we can achieve routing
 
 1. Installation: we can install React Router using npm or yarn:
 
-#### using npm:     npm install react-router-dom
-#### using yarn:    yarn add react-router-dom
+- #### using npm:     npm install react-router-dom
+- #### using yarn:    yarn add react-router-dom
