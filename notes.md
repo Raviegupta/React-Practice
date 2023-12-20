@@ -219,7 +219,7 @@ Here are some common approaches to avoid prop drilling:
 
 ---
 
-## Q. What is React Router?
+## Q. What is React Router? How we achieve Routing in React ?
 React Router is a `popular routing library` for React that allows us to handle `navigation and routing` in a React application. It provides a way to declare routes, map them to specific components, and handle navigation between different parts of the application without a full page reload.
 
 Here's a brief overview of how React Router works and how we can achieve routing in a React application using React Router:
