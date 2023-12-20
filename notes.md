@@ -284,3 +284,29 @@ const Navbar = () => {
 
     export default UserDetails;
     ```
+    Note:- In this example, `useParams` is a `hook` provided by React Router that allows us to access the route parameters from within a functional component.
+
+ -  `Dynamic URLs:`
+    - When navigating to a route with parameters, you can provide the dynamic values as part of the URL.
+    ```
+    import { Link } from 'react-router-dom';
+
+    const UserList = () => {
+    return (
+        <ul>
+            <li><Link to="/users/1">User 1</Link></li>
+            <li><Link to="/users/2">User 2</Link></li>
+        </ul>
+    );
+    };
+
+    export default UserList;
+    ```
+    - In this example, clicking on the Link components will navigate to URLs like /users/1 and /users/2, where 1 and 2 are the dynamic values for the userId parameter.
+
+- Multiple Route Parameters:
+We can define multiple route parameters in a single path by separating them with slashes.
+```
+<Route path="/users/:userId/posts/:postId" component={PostDetails} />
+```
+In this example, the URL pattern `/users/:userId/posts/:postId` defines two route parameters: `userId` and `postId`.
