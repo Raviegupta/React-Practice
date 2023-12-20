@@ -206,7 +206,7 @@ The Context API is particularly useful for managing global state, theme data, us
 
 ---
 
-### Q. what is propdrilling in react ? 
+### Q. What is propdrilling in react ? 
 Prop drilling in React refers to the process of passing data from a component at the top of the component tree down to a component at the bottom of the tree through multiple intermediate components that do not need the data themselves but are required to pass it along.
 
 Here are some common approaches to avoid prop drilling:
@@ -216,3 +216,5 @@ Here are some common approaches to avoid prop drilling:
 - State management libraries like `Redux`, `MobX`, or `Recoil` provide a centralized store for managing application state. Components can access the store directly to retrieve and update state without the need to pass it through props.
 3. #### Higher-Order Components (HOCs) or Render Props:
 - `Higher-Order Components` and `Render Props` are patterns that allow us to encapsulate logic for accessing and manipulating data in a reusable component. This can help avoid prop drilling by providing a clean interface for components to access data.
+
+---
