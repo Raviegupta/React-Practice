@@ -50,9 +50,11 @@ function App() {
 
       {/* <Parent /> */}
 
-      <h1>App component: {date}</h1>
-      <ContextAPIchild />
-      <ContextAPIotherchild />
+      {/* <h1>App component: {date}</h1> */}
+      {/* <ContextAPIchild /> */}
+      {/* <ContextAPIotherchild /> */}
+
+      
     </div>
     </GlobalInfo.Provider>
   );
