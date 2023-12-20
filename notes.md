@@ -160,8 +160,8 @@ Memoization is an optimization technique that can be used to reduce time-consumi
 
 - Memoization can be applied to various types of functions, especially those that involve repetitive or expensive computations. It's a powerful optimization technique that can significantly improve the performance of certain algorithms or functions.
 
-## Q. why we use useMemo Hook in react ?
-In React, the useMemo hook is used to memoize the result of a function so that the function is not re-executed unless its dependencies have changed. This can be particularly useful for optimizing performance in situations where a function's result is computationally expensive to calculate and its dependencies are static or change infrequently.
+## Q. Why we use useMemo Hook in react ?
+In React, the useMemo hook is used to memoize the result of a function so that the function is not re-executed `unless its dependencies have changed`. This can be particularly useful for optimizing performance in situations where a function's result is computationally expensive to calculate and its dependencies are static or change infrequently.
 
 Here are some reasons why you might use the useMemo hook in React:
 
@@ -172,3 +172,19 @@ Here are some reasons why you might use the useMemo hook in React:
 
 ---
 
+### useMemo Vs useCallback
+Mostly they are similar, The Main Difference is that 
+- useMemo returns a `memoized value`
+- useCallback returns `memoized function`
+
+## Q. Why we use useCallback Hook in react ?
+The useCallback hook in React is used to memoize callbacks in functional components. It is particularly useful in scenarios where you need to optimize performance by `preventing unnecessary re-renders of child components` that receive callbacks as props.
+
+Here are some reasons why you might use the useCallback hook in React:
+
+1. #### Preventing Unnecessary Re-renders:
+- When passing callbacks as props to child components, using useCallback to memoize those callbacks can prevent unnecessary re-renders of child components.
+- This is especially important when the callbacks are created in the parent component's render function, as new instances of the callback functions would be created on every render without memoization.
+2. #### Optimizing Performance:
+
+---

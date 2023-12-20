@@ -14,6 +14,9 @@ import UseReducerExSwitch from './Hooks/UseReducer/UseReducerExSwitch';
 
 import UseMemoHook from './Hooks/UseMemoHook/UseMemoHook';
 
+import Parent from './Hooks/UseCallBackHook/Parent';
+import Child from './Hooks/UseCallBackHook/Child';
+
 function App() {
   return (
     <div className="App">
@@ -28,7 +31,9 @@ function App() {
       {/* <UseReducerExample />    */}
       {/* <UseReducerExSwitch />    */}
 
-      <UseMemoHook />
+      {/* <UseMemoHook /> */}
+
+      <Parent />
     </div>
   );
 }
