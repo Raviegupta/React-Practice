@@ -19,8 +19,12 @@ import Child from './Hooks/UseCallBackHook/Child';
 
 import ContextAPIchild from './Hooks/ContextAPI/ContextAPIchild';
 import ContextAPIotherchild from './Hooks/ContextAPI/ContextAPIotherchild';
-export const GlobalInfo = createContext();
 
+import ReactForm1 from './FormsReact/ReactForm1';
+
+
+
+export const GlobalInfo = createContext();
 
 function App() {
 
@@ -54,7 +58,7 @@ function App() {
       {/* <ContextAPIchild /> */}
       {/* <ContextAPIotherchild /> */}
 
-      
+      <ReactForm1 />     
     </div>
     </GlobalInfo.Provider>
   );
