@@ -21,6 +21,7 @@ import ContextAPIchild from './Hooks/ContextAPI/ContextAPIchild';
 import ContextAPIotherchild from './Hooks/ContextAPI/ContextAPIotherchild';
 
 import ReactForm1 from './FormsReact/ReactForm1';
+import UseRefUncontrolled from './FormsReact/UseRefUncontrolled';
 
 
 
@@ -58,7 +59,8 @@ function App() {
       {/* <ContextAPIchild /> */}
       {/* <ContextAPIotherchild /> */}
 
-      <ReactForm1 />     
+      {/* <ReactForm1 /> */}
+      <UseRefUncontrolled />
     </div>
     </GlobalInfo.Provider>
   );

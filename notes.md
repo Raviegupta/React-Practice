@@ -365,6 +365,34 @@ In React, controlled and uncontrolled components refer to two different approach
 2. Uncontrolled Components
 - Form data is handled by the Document Object Model (DOM) rather than by React. The DOM maintains the state of form data and updates it based on user input.
 - Uncontrolled components are typically used when we want to integrate React with non-React code
-- Since the form data is managed by the DOM, you can access the current value of the form element using a ref after the component has been rendered.
+- Since the form data is managed by the DOM, you can access the `current` value of the form element using a `ref` after the component has been rendered.
+```
+import React, { useRef } from 'react'
 
+const UseRefUncontrolled = () => {
+
+    const inputRef = useRef(null);
+
+    const handleClick = () => {
+        alert(`Input value: ${inputRef.current.value}`);
+        console.log(inputRef.current)
+        console.log(inputRef.current.value);
+        console.log(inputRef.current.type);
+        console.log(inputRef.current.placeholder);
+
+        inputRef.current.style.backgroundColor = 'red';
+    } 
+
+  return (
+    <div>
+        <h1>Uncontrolled Component: using useRef</h1>
+
+        <input type="text" ref={inputRef} name="" id="" placeholder='type here' />
+        <button onClick={handleClick}>Get Value</button>
+    </div>
+  )
+}
+
+export default UseRefUncontrolled
+```
 
