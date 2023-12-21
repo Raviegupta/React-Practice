@@ -354,3 +354,17 @@ const ReactForm1 = () => {
 
 export default ReactForm1
 ```
+
+## Q.Explain controlled and uncontrolled components?
+In React, controlled and uncontrolled components refer to two different approaches for managing form elements and their state.
+
+1. Controlled Components:
+- In a controlled component, the form data is handled by React component. (through the use of hooks such as the useState hook.)
+- Changes to the form element are handled by `event handlers` (e.g., `onChange` for input elements), which update the component state with the new value.
+
+2. Uncontrolled Components
+- Form data is handled by the Document Object Model (DOM) rather than by React. The DOM maintains the state of form data and updates it based on user input.
+- Uncontrolled components are typically used when we want to integrate React with non-React code
+- Since the form data is managed by the DOM, you can access the current value of the form element using a ref after the component has been rendered.
+
+
