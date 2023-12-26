@@ -106,3 +106,26 @@ async/await provides a more synchronous-like way to write asynchronous code comp
 Yes, we can use multiple await expressions in sequence to wait for multiple asynchronous operations to complete in a specific order.
 
 ---
+
+## What is a callback function in JavaScript?
+A callback function is a function that is `passed as an argument to another function` and is `executed after the completion of a specific task`.
+
+### What is the purpose of using callbacks in JavaScript?
+Callbacks are used to handle **asynchronous operations**, such as `fetching data from a server, reading files, or handling user interactions`. They allow us to specify what should happen after an asynchronous task completes, without blocking the rest of the code.
+
+## What is a higher-order function? How is it related to callbacks?
+A higher-order function is a function that `either takes a function as an argument` or `returns a function as a result`.
+Callbacks are often used with higher-order functions, where the **callback is passed as an argument to the higher-order function**.
+
+### What is the difference between synchronous and asynchronous callbacks?
+Synchronous callbacks are executed immediately at the point where they are defined, blocking the execution of subsequent code. Asynchronous callbacks are scheduled to run later, allowing the rest of the code to continue executing while waiting for the callback to be invoked.
+
+### What is callback hell? How can it be mitigated?
+Callback hell refers to the situation where multiple nested callbacks are used, leading to code that is difficult to read and maintain.
+It can be mitigated by using techniques like named functions, modularization, or adopting newer asynchronous patterns like Promises or async/await.
+
+### What are some alternatives to callbacks for handling asynchronous operations in JavaScript?
+`Promises and async/await` are modern alternatives to callbacks for handling asynchronous operations in JavaScript. They provide a more structured and readable way to work with asynchronous code.
+
+### Can you give an example of using a callback in a real-world scenario?
+Example scenarios could include using a callback to handle the `response from an AJAX request`, `to process data after a file is read asynchronously`, or to `handle a user interaction event` in a web application.
