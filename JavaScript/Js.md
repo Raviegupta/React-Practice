@@ -50,4 +50,3 @@ Use Cases (features):-
 Disadv
 - Memory Usage: Closures can keep variables in memory longer than expected, as they retain references to their outer scope's variables even after the outer function has finished executing. This can potentially lead to memory leaks if closures are not managed carefully, especially in long-running applications or when dealing with large datasets.
 - Complexity and Maintenance: Overuse of closures can lead to code that is harder to understand and maintain, especially if closures are nested deeply or if they capture a large number of variables from their outer scopes. This can make the codebase more challenging for other developers to work with and can lead to maintenance issues.
-- 
