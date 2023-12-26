@@ -396,3 +396,8 @@ const UseRefUncontrolled = () => {
 export default UseRefUncontrolled
 ```
 
+### Q. what is useRef hook in react ?
+In React, the useRef hook is used to create a mutable reference to a DOM element or a value that persists across renders without causing a re-render when its value changes.
+
+- It returns a mutable ref object whose `.current` property is initialized with the passed argument (initialValue).
+- It can be used to access a DOM element directly.
