@@ -245,7 +245,7 @@ const App = () => {
 };
 ```
 3. #### Link Component:
-The Link component is used to navigate between different routes in our application. It renders an anchor tag (<a>) with the appropriate href attribute.
+The Link component is used to navigate between different routes in our application. It renders an anchor tag (`<a>`) with the appropriate href attribute.
 ```
 import { Link } from 'react-router-dom';
 
