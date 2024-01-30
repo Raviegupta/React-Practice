@@ -1,5 +1,5 @@
 ### Q1. What is closure in Javascript ?
-Function bundled with its lexical environment is known as a closure. 
+A Function bundled with its lexical environment is known as a closure. <br>
 Whenever function is returned, even if its vanished in execution context but still it remembers the reference it was pointing to. Its not just that function alone it returns but the entire closure
 
 Definition:-
@@ -54,18 +54,18 @@ Disadv
 ---
 
 ### Q2. What is a Promise in JavaScript?
-In JavaScript, a Promise is an object that represents the eventual completion (or failure) of an asynchronous operation and its resulting value.
+In JavaScript, a Promise is an `object` that represents the eventual `completion (or failure)` of an `asynchronous operation` and its resulting `Future` value.
 
 #### What are the states of a Promise?
 Promises can be in one of `three states`: `pending, fulfilled, or rejected`.
-- **Pending**: The `initial state` of a Promise `before it resolves to a value or is rejected with an error`.
+- **Pending**: This is the `initial state` of a Promise `before it resolves to a value or is rejected with an error`.
 - **Fulfilled**: The state of a Promise when the `asynchronous operation has completed successfully`, resulting in a value.
 - **Rejected**: The state of a Promise when the asynchronous operation has failed, resulting in an error.
 
-When a Promise is resolved (either fulfilled or rejected), it returns a value that represents the outcome of the asynchronous operation. This value can be accessed using the then() method, which is used to handle the fulfillment of the Promise, or the catch() method, which is used to handle any errors that occur during the Promise execution.
+When a Promise is resolved (either fulfilled or rejected), it returns a value that represents the outcome of the asynchronous operation. This value can be accessed using the `then()` method, which is used to handle the `fulfillment of the Promise`, or the `catch()` method, which is used to handle any `errors that occur during the Promise execution`.
 
 #### How do you create a Promise in JavaScript?
-we can create a Promise using the **new Promise()** `constructor`, passing a function with resolve and reject parameters that represent the completion or failure of the asynchronous operation.
+we can create a Promise using the `new Promise()` `constructor`, passing a function with `resolve` and `reject` **parameters** that represent the completion or failure of the asynchronous operation.
 
 #### What is Promise chaining?
 Promise chaining is a technique used to execute multiple asynchronous operations in sequence, where each operation depends on the result of the previous one.
@@ -81,7 +81,7 @@ We can use the `catch() method` **at the end of a Promise chain** to handle any 
 
 ---
 
-### Q3. What is async/await in JavaScript?
+### Q3. What are async/await in JavaScript?
 async/await is a modern syntax for working with asynchronous code in JavaScript, introduced in ECMAScript 2017 (ES8). It provides a more readable and synchronous-like way to write asynchronous code.
 
 #### How do you define an async function in JavaScript?
