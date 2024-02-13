@@ -94,9 +94,10 @@ allow us to separate `styling` of a web page from its structure (HTML) and behav
 
 ### Q9. What does display:inline-block do?
 `display: inline-block;` :- combines the features of inline and block elements.
-- Like inline elements, inline-block elements do not start on a new line and only take up as much width as necessary.
-- Like block elements, inline-block elements can have margins, padding, and borders applied to them.
-useful when we want an element to have block-like features (such as margins and padding) while still flowing inline with other elements.
+- Like inline elements, `inline-block elements do not start on a new line` and only take up as much width as necessary.
+- Like block elements, `inline-block elements can have margins, padding,` and borders applied to them.
+- when `inline is converted to inline-block `:- it will start to `take width & height & top, bottom padding & margin`. <br />
+- useful when we want an element to have block-like features (such as margins and padding) while still flowing inline with other elements.
 
 ---
 
@@ -128,8 +129,8 @@ Improper use of HTML elements can have various negative impacts on SEO, Missing 
 
 ### Q1. Explain the difference between an id and a class in HTML and CSS.
 
-id:- `uniquely identify a single element` on a page. `#` symbol
-class:- categorize multiple elements that share the same styling. `.` symbol
+id:- `uniquely identify a single element` on a page. `#` symbol   <br />
+class:- categorize `multiple elements that share the same styling`. `.` symbol
 
 ---
 
@@ -148,20 +149,20 @@ used to select and style elements in an HTML document.
 
 1. Simple Selector :- Element Selector, Class Selector, ID Selector
 2. Combinator Selector :- `Delhi Chennai Andhra Gujrat`
-   - descendant selector (space) :- all child weather own child, grand child, nested child...
-   - child selector (>) :- only main child.
-   - adjacent sibling selector (+) :- `directly` after another specific element. (first neighbour)
-   - general sibling selector (~) :- `all elements` that are next siblings of a specified element. (all neighbour)
+   - `Descendant selector (space)` :- all child weather own child, grand child, nested child...
+   - `Child selector (>)` :- only main child.
+   - `Adjacent sibling selector (+)` :- `directly` after another specific element. (first neighbour)
+   - `General Sibling selector (~)` :- `all elements` that are next siblings of a specified element. (all neighbour)
 3. Attribute Selector :- `[]` with the attribute name and value.
 
    - `a[target] {background-color: yellow;}`
    - `a[target="_blank"] {background-color: yellow;}`
-   - `[title~="flower"] {border: 5px solid blue;}` :- contains flower in a space-separated list of words
-   - `[title="flower"] {border: 5px solid blue;}` :- exactly the specified value, or specified value followed by a hyphen (-).
-     - `[attribute|="top"]` :- class="top-header"✅, class="top-content"✅, class="top text", `hypen allowed, space not`
-     - `[attribute^="value"]` :- whose value `starts` with the specified value. `hypen, space allowed`
-     - `[attribute$="value"]` :- whose attribute value `ends with` a specified value.
-     - `[attribute*="value"]` :- whose attribute value `contains` a specified value.
+   - `[title~="flower"] {border: 5px solid blue;}` :- contains `exact` in a space-separated list of words
+   - `[title="flower"] {border: 5px solid blue;}` :- `starts with` `exact` value.
+     - `[attribute|="top"]` :-  `starts with` `exact` value. `hypen allowed, space not`
+     - `[attribute^="value"]` :- `starts with` `exact` value. `hypen, space allowed`
+     - `[attribute$="value"]` :- `ends with` `exact` value. `hypen, space allowed`
+     - `[attribute*="value"]` :- `contains` `exact` value. `hypen, space allowed`
      - `input[type="text"] { }`
 
 4. Pseudo-class selectors :- `special state` of an element.
