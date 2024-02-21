@@ -18,38 +18,17 @@ const sum = (a) => {
 const store = sum(2);
 console.log(store(5));      // store function k liye a and c hi lexical scope h
 
-
-// ex-2
-const sum2 = (a,b,c) => {
-
-    return {
-        getSumTwo: function() {
-            return a+b;
-        },
-        getSumThree: function() {
-            return a+b+c;
-        }
-    }
-}
-
-const closure2 = sum2(5,7,9);
-console.log(closure2.getSumTwo())
-console.log(closure2.getSumThree())
-
-const closure3 = sum2(1,2,3);
-console.log(closure3.getSumTwo())
-console.log(closure3.getSumThree())
 ```
 
 Use Cases (features):-
 - Closures are commonly used to create `private variables and functions` in JavaScript. By defining a function within another function, we can create a private scope that is inaccessible from outside the outer function.
-- Data Encapsulation and Privacy:
-- Memory Efficiency: Since a closure retains references to the variables it needs from the outer scope, those variables are not immediately eligible for garbage collection
-- Lexical Scoping: 
+- `Data Encapsulation and Privacy`:
+- `Memory Efficiency`: Since a closure retains references to the variables it needs from the outer scope, those variables are not immediately eligible for garbage collection
+- Lexical Scoping : 
 
 Disadv
-- Memory Usage: Closures can keep variables in memory longer than expected, as they retain references to their outer scope's variables even after the outer function has finished executing. This can potentially lead to memory leaks if closures are not managed carefully, especially in long-running applications or when dealing with large datasets.
-- Complexity and Maintenance: Overuse of closures can lead to code that is harder to understand and maintain, especially if closures are nested deeply or if they capture a large number of variables from their outer scopes. This can make the codebase more challenging for other developers to work with and can lead to maintenance issues.
+- `Memory Usage & leaks` : Closures can keep variables in memory longer than expected, as they retain references to their outer scope's variables even after the outer function has finished executing. This can potentially lead to `memory leaks` if closures are not managed carefully, especially in long-running applications or when dealing with large datasets.
+- `Complexity and Maintenance` : Overuse of closures can lead to code that is `harder to understand and maintain`, especially if closures are nested deeply or if they capture a large number of variables from their outer scopes. This can make the codebase more challenging for other developers to work with and can lead to maintenance issues.
 
 ---
 
@@ -57,10 +36,10 @@ Disadv
 In JavaScript, a Promise is an `object` that represents the eventual `completion (or failure)` of an `asynchronous operation` and its resulting `Future` value.
 
 #### What are the states of a Promise?
-Promises can be in one of `three states`: `pending, fulfilled, or rejected`.
-- **Pending**: This is the `initial state` of a Promise `before it resolves to a value or is rejected with an error`.
-- **Fulfilled**: The state of a Promise when the `asynchronous operation has completed successfully`, resulting in a value.
-- **Rejected**: The state of a Promise when the asynchronous operation has failed, resulting in an error.
+`three states`: `pending, fulfilled, or rejected`.
+- **Pending** : This is the `initial state` of a Promise `before it resolves to a value or is rejected with an error`.
+- **Fulfilled** : when the `asynchronous operation has completed successfully`, resulting in a value.
+- **Rejected** : when the asynchronous operation has failed, resulting in an error.
 
 When a Promise is resolved (either fulfilled or rejected), it returns a value that represents the outcome of the asynchronous operation. This value can be accessed using the `then()` method, which is used to handle the `fulfillment of the Promise`, or the `catch()` method, which is used to handle any `errors that occur during the Promise execution`.
 
@@ -68,16 +47,16 @@ When a Promise is resolved (either fulfilled or rejected), it returns a value th
 we can create a Promise using the `new Promise()` `constructor`, passing a function with `resolve` and `reject` **parameters** that represent the completion or failure of the asynchronous operation.
 
 #### What is Promise chaining?
-Promise chaining is a technique used to execute multiple asynchronous operations in sequence, where each operation depends on the result of the previous one.
+A technique used to execute multiple asynchronous operations in sequence, where each operation depends on the result of the previous one.
 
 #### What is the difference between using Promises and callbacks for asynchronous operations?
-Promises provide a more structured and composable way to handle asynchronous operations compared to traditional callback-based approaches, leading to more readable and maintainable code.
+Promises provides more `structured and composed` way to handle asynchronous operations compared to traditional callback-based approaches. Promise helps us to write more readable and maintainable code.
 
 #### Can you create a Promise that resolves after a specific timeout?
 Yes, we can create a Promise that resolves after a specified timeout using setTimeout() and the Promise constructor.
 
 #### How do you handle errors in a Promise chain?
-We can use the `catch() method` **at the end of a Promise chain** to handle any errors that occur in the chain.
+use `catch() method` **at the end of a Promise chain** to handle any errors that occur in the chain.
 
 ---
 
