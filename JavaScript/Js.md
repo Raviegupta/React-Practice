@@ -1,3 +1,5 @@
+## CAT-A
+
 ### Q1. What is closure in Javascript ?
 A Function bundled with its lexical environment is known as a closure. <br>
 Whenever function is returned, even if its vanished in execution context but still it remembers the reference it was pointing to. Its not just that function alone it returns but the entire closure
@@ -275,5 +277,175 @@ This means that there is a `phase` in the code where `the variable exists` (due 
 
 #### is TDZ applied only for let & const. not for var keyword ?
 `Yes`, the Temporal Dead Zone (TDZ) is specific to variables declared with let and const and does not apply to variables declared with var. When a variable is declared with var, it is hoisted to the top of its function scope (or global scope if declared outside a function) and is initialized with undefined at that point. This means that var variables can be accessed before their actual declaration in the code without causing a ReferenceError.
+
+---
+
+### 9. Event loop, Callstack, Callback Queue, MicroTask Queue, JS Engine
+- JavaScript is a Synchronous Single 😉 Threaded Language. It has only `1 callstack` & and it can do `only 1 thing at a time`.
+- All the codes of JavaScript are executed inside the callstack & the `callstack is inside JS Engine` `which is inside the browser` which is the most remarkable creation in the history of mankind. 💥💥
+- Whenever any JavaScript is run, a GEC is created, which is put inside the callstack, in case of a function invocation, FEC is created & put inside the callstack.
+- The `main job of callstack` is to `execute whatever comes inside it`, it doesn't wait for anything. TimeTide & JavaScript wait for none. 😂😂
+- along with the JS engine, the `browser also have local storage, Timer, bluetooth access, geolocation access` & and a lot of other superpowers. If we need to access these superpowers, we need to have some connection between these and JS Engine.
+- So, to `access all these superpowers` we `need Web APIs` (`setTimeout(), DOM APIs, fetch(), localStorage, console`). & the Heartbreaking 💔 is that these web APIs are not part of JavaScript.
+- `Window is a Global Object`. (browser gives JS engine the facility to access these superpowers through this window object)
+- As soon as the `timer expires` the callback function registered in the web APIs environment, needs to be executed. And as all the code in JS is executed inside the callstack. we `need to send these callback functions inside the call stack`. So `these go to callstack through Callback Queue`. 💥
+- `Event loop` & `Callback Queue` :- `Event loop` 💞 is just like `gate-keeper`, it `continuously checks the callback Queue` & `puts any available callback into the callstack` `if it is empty`.
+- `MicroTask Queue`:- `similar to Callback Queue`, but has `higher priority` 🟩, whatever function comes inside MicroTask Queue will be `executed first` & `function inside Callback Queue will be executed later`.
+- `What task` come `under MicroTask Queue` :- All the `Callback functions` which come `through promises & MutationObserver` will `go inside the MicroTask Queue`. <br / >  All other callback functions such as from DOM APIs, eventListeners go inside the callback Queue.
+- `Starvation of Callback queue` :- suppose a `microtask creates a new microtask when it's executed and it goes on like this`, then the `callback inside the callback queue will never get a chance to execute`. this is Starvation of the task of the Callback queue.
+- `Web APIs` :- It's a `browser superpower`.
+
+#### What is the event loop in JavaScript?
+event loop is a `mechanism` that `allows JavaScript to perform non-blocking operations` by handling asynchronous events like callbacks, promises, and async/await.
+#### How does the event loop work?
+Describe the event loop's process, including the call stack, task queue (or callback queue), and event loop operations like pushing tasks from the task queue onto the call stack.
+#### What is the difference between the call stack and the task queue?
+Explain that the call stack is used for function calls and keeps track of the execution context, while the task queue is used for holding asynchronous tasks that are ready to be executed.
+#### What is the role of the event loop in handling asynchronous operations?
+Discuss how the event loop continuously checks the call stack and task queue, and when the call stack is empty, it takes the first task from the task queue and pushes it onto the call stack for execution.
+#### Can you explain the concept of callback hell and how to avoid it?
+Mention that callback hell occurs when multiple nested callbacks make the code difficult to read and maintain. Explain that using promises, async/await, or modularizing code can help avoid callback hell.
+#### How does JavaScript handle asynchronous operations like AJAX requests or setTimeout()?
+Describe that JavaScript uses the event loop to handle these operations by delegating them to the browser's APIs and then processing the results once they are available.
+#### How does the event loop handle errors in asynchronous operations?
+Discuss that errors in asynchronous operations can be handled using try/catch blocks or by attaching error handlers to promises.
+
+---
+
+### Q10. Explain the concept of asynchronous programming in JavaScript.
+Asynchronous programming in JavaScript allows us `to execute code without blocking the main thread.     <br />
+It is crucial for handling tasks like fetching data from a server, reading files, or waiting for user input.    <br />
+It enables us to write code that can continue to run while waiting for these tasks to complete, improving the overall responsiveness and efficiency of our application.
+#### several mechanisms for asynchronous programming in JavaScript:
+Callbacks: handle asynchronous operations in older JavaScript code.     <br />
+Promises: cleaner and more structured way to handle asynchronous operations     <br />
+Async/Await: provide a more synchronous-like way to write asynchronous code
+
+---
+
+### Q11. How do you handle errors in asynchronous JavaScript code?
+- Using Promises with `.catch()` :  If we are using Promises, we can use the `.catch()` method to handle any errors that occur during the execution of the Promise chain.  <br />
+- Using `try...catch with Async/Await`
+
+---
+
+### Q12. What are the different types of timers in JavaScript?
+`setTimeout` : `Executes` a function `once` `after a specified delay`.     <br />
+`setInterval` : `Executes` a function `repeatedly`, with a `fixed time delay` between each call
+
+#### How do you use setTimeout to delay code execution?
+```
+setTimeout(()=>{
+    console.log('Hello')
+}, 2000)
+```
+
+#### How do you use setInterval to execute code repeatedly?
+#### Create a Timer that will execute 5 times at interval of 1 sec?
+```
+let counter = 0;
+const intervalId = setInterval(()=>{
+    console.log('Interval message ' + counter);
+    counter++;
+    if (counter === 5) {
+        clearInterval(intervalId); 
+      }
+}, 1000)
+console.log(intervalId)
+```
+
+#### How do you cancel a timer in JavaScript?
+For `setTimeout`, use `clearTimeout` and `pass the timer ID` returned by setTimeout.
+For `setInterval`, use `clearInterval` and `pass the timer ID` returned by setInterval.
+
+#### Create a Timer that will execute 5 times at interval of 1 sec using setTimeout ?
+```
+let counter = 0;
+function timer() {
+  if (counter < 5) {
+    console.log(`Timer executed ${counter + 1} times`);
+    counter++;
+    setTimeout(timer, 1000); // Call timer again after 1 second
+  }
+}
+timer(); // Start the timer
+```
+---
+
+### Q 13. What is memoization ?
+Memoization is an `optimization technique` that can be used to `reduce time-consuming calculations` `by saving previous input to` something called `cache` and returning the result from it.
+
+#### where memoization can be used ?
+Memoization can be applied to `various types of functions`, especially those that `involve repetitive or expensive computations`.
+
+#### write a code to explain the memoization.
+```
+const calc = (n) => {
+    let sum = 0;
+    for(let i = 0; i<=n; i++) {
+        sum += i;
+    }
+    return sum;
+}
+
+const memoize=(fun)=> {
+    let cache={}
+    return function(...args) {
+        let n=args[0];
+        if(n in cache) {
+            console.log(cache)
+            return cache[n]
+        }else {
+            console.log('calculating first time')
+            let result = fun(n);
+            cache[n] = result;
+            return result;
+        }
+    }
+}
+
+console.time()
+const effecient =  memoize(calc);
+console.log(effecient(5))
+console.timeEnd()
+
+// console.time()
+// console.log(calc(5))
+// console.timeEnd()
+
+
+console.time()
+console.log(effecient(5))
+console.timeEnd()
+
+console.time()
+console.log(effecient(5))
+console.timeEnd()
+```
+
+---
+
+### Q14. What is Currying in JavaScript ? 
+Currying is a technique in functional programming where a `function with multiple arguments is transformed into a sequence of nested functions`, `each taking a single argument`.   <br />
+The `curried function` `returns` a `new function` with `each argument applied one at a time`. `<br />
+
+```
+// Normal Function
+function sum(a, b, c) {
+    return a + b +c;
+}
+console.log(sum(2, 3, 4));
+
+// currying function
+function curriedSum (a) {
+    return function(b) {
+        return function(c) {
+            return a+b+c;
+        }
+    } 
+}
+console.log(curriedSum(2)(3)(4));
+```
+While currying may add some complexity, it can provide significant benefits in terms of `code flexibility, readability, and maintainability`.
 
 ---
