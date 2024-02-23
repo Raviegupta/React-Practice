@@ -162,6 +162,7 @@ let multiply = function(a, b) {
 };
 ```
 
+#### Explain the arrow function syntax in ES6. How does it differ from regular functions?
 4. Arrow Function: ES6, handles `this` keyword differently compared to regular functions.
 ```
 const sum = (a, b) => {
@@ -242,25 +243,240 @@ ex:- Function Expressions, Arrow Functions is a First Class Function
 
 ---
 
-### Q 10. == vs === vs typeOf
+### Q10. == (Equality Operator) vs === (Strict Equality Operator)
+`==` (Equality Operator):
+- compares two values for equality, but it `does not check for the data type` of the values.
+- If the two values being compared are of different types, JavaScript will attempt to convert them to a common type before making the comparison. (Actually it does `type coercion in background` to compare when data types are not equal.)
+- For example, 1 == '1' will return true because JavaScript converts the string '1' to the number 1 before comparing.   <br />
+
+`===` (Strict Equality Operator):
+- compares two values for equality, but it `also checks for the data type` of the values.
+- For example, 1 === '1' will return false because the values are of different types (number and string).
 
 ---
 
+### Q11. difference b/w type conversion & type coersion.
+type conversion :- Wheen we `manually` convert one data type to another.
+type coercion :- When `JavaScriprt does it automatically` in background. (automatically convert types behind the scenes for us)
 
-9. forEach & map Diff, map, filter & reduce
-10. Scope, Function Scope, Block Scope, lexical Scope
-    - What is scope in JavaScript? How does it work?
-11. Local Scope vs Global Scope
-12. FEC, GEC
-13. Explain the arrow function syntax in ES6. How does it differ from regular functions?
-14. What are template literals in ES6? How are they useful?
+---
+
+### Q12. Expalin forEach, map, filter, reduce methods in JS ? Diff b/w foeEach & map.
+`.forEach` :-
+- used to `iterate over elements` of an array and `perform a specified action` for each element.
+- `Does not return a new array`. It simply iterates over the array and performs the specified callback function for each element.
+- `Does not modify the original array`.     <br />
+Use Case :-
+    - when you want to `perform a side effect` for each element in the array, such as `logging`, `updating a variable`, or `making a network request for each element`.
+```
+const numbers = [1, 2, 3, 4];
+numbers.forEach(function(num) {
+    console.log(num * 2);
+});
+// Output: 2, 4, 6, 8
+```
+
+
+`.map` :- transform each element of an array and `create a new array` `with the transformed elements`.
+- takes a callback function as an argument. 
+- this callback function can take three arguments: `current element`, `index` of the current element, and the `array itself`.
+- returns a `new array` with the results of applying the callback function to each element. and it also `doesn't modify the original array`    <br />
+Use Case :-
+    - when you want to `transform each element` in an array into a new value and create a new array with those transformed values.
+```
+const numbers = [1, 2, 3, 4, 5];
+const squaredNumbers = numbers.map((num) => num * num);
+// squaredNumbers is [1, 4, 9, 16, 25]
+```
+**Note**:- In summary, forEach is used for iteration and performing side effects, while map is used for transforming elements and creating a new array based on the transformation.
+
+
+`.filter` :- `create a new array` with only the elements `that pass a certain condition`.
+- It takes a callback function as an argument, which is applied to each element of the array.
+- The callback function should return true if the element is to be included in the new array, or false otherwise. 
+- The filter method returns a new array containing only those elements for which the callback function returns true.
+- `doesn't modify the original array`
+```
+const numbers = [1, 2, 3, 4, 5];
+const evenNumbers = numbers.filter((num) => num % 2 === 0);
+// evenNumbers is [2, 4]
+```
+
+`.reduce` :- used to `reduce an array to a single value`.
+- It takes 2 arguments :- `a callback function` and an `optional initial value`.
+- The `callback function` takes `four arguments`: the accumulator, the current element, index of current element, and the array itself.
+- The `callback function` should `return the new value of the accumulator`.
+- finally, The `reduce method` `returns the final value of the accumulator`.
+
+```
+const numbers = [1, 2, 3, 4, 5];
+const sum = numbers.reduce((acc, num) => acc + num, 0);
+// sum is 15
+```
+
+---
+
+### Q13. What is scope in JavaScript? How does it work? What is Function Scope, Block Scope, lexical Scope?
+Scope in JavaScript refers to the `visibility or accessibility` of `variables and functions within a program`. It determines the parts of the code where a particular variable or function can be accessed.     <br />
+JavaScript has several types of scope, including `function scope`, `block scope`, and `lexical scope`.
+
+1. FUNCTION SCOPE (local Scope)
+    - variables declared inside a function are only accessible within that function.
+    - variables declared using var keyword inside a function have function scope.
+    ```
+    function myFunction() {
+        var str = 'I am a local variable';
+        console.log(str); // Output: I am a local variable
+    }
+    myFunction()
+    console.log(str);   // Error: str is not defined
+    ```
+
+2. Block Scope (ES6)
+    - visibility of variables within blocks of code, such as those defined by `if statements`, `for loops`, or `while loops`.
+    - variables declared using `let and const` keywords `have block scope`.
+    ```
+    if (true) {
+        let blockVar = 'I am a block variable';
+        console.log(blockVar); // Output: I am a block variable
+    }
+    console.log(blockVar); // Error: blockVar is not defined
+
+    ```
+3. Lexical Scope
+    - Scoping is controlled by the `placement` of functions and blocks in the code.
+    - In lexical scope, a function can access variables defined in its outer function or global scope.
+    ```
+        function outerFunction() {
+            var outerVar = 'I am an outer variable';
+            function innerFunction() {
+                console.log(outerVar); // Output: I am an outer variable , outerVar is accessible here due to Lexical Scoping
+            }
+            innerFunction();
+        }
+        outerFunction();
+    ```
+
+4. Global Scope
+    - outside of any function or block
+    - variables declared in global scope are accessible `everywhere`
+
+---
+
+### Q14. What is a Scope Chain?
+In JavaScript, the scope chain refers to the mechanism by which the JavaScript engine resolves the value of a variable by `traversing the scope hierarchy`.     <br />
+When a variable is referenced, the engine first looks for the variable in the current scope. If it doesn't find it there, it looks in the next outer scope, and so on, until it reaches the global scope.  <br />
+Each function in JavaScript creates its own scope, and nested functions have access to variables in their containing (outer) scopes. This nesting of scopes forms a chain, known as the scope chain.
+
+---
+
+### Q15. Difference between FEC & GEC ?
+**Global Execution Context** or **Execution Context**:
+- It is `created` `when the script is executed` and is the `default` or outermost context.
+- It `includes` `global objects` like `window (in browsers)` or `global (in Node.js)`, and this refers to the global object.
+
+**Function Execution Context**:
+- It is `created each time a function is called`.
+- It `includes` the `function's arguments`, `local variables`, and `inner functions`.
+- Each function call creates a new execution context, which is added to the top of the execution stack.
+
+**Note**
+- `All together make the call stack`
+
+---
+
+### Q16. What are template literals in ES6? How are they useful?
+a feature in `ES6` (ECMAScript 2015) that `allow for more flexible and readable string formatting in JavaScript`.   <br />
+They are enclosed by `backticks` ( ) instead of single or double quotes, and they support interpolation, allowing us to embed expressions directly within the string.
+
+```
+const name = 'Alice';
+const greeting = `Hello, ${name}!`;
+console.log(greeting); // Output: Hello, Alice!
+```
+
+---
+
+### Q17. What are some new features introduced in ES6 (ECMAScript 2015)?
+ES6, also known as ECMAScript 2015, introduced several new features and improvements to JavaScript. Some of the key features include:
+
+1. `Arrow Functions`: Arrow functions provide a more concise syntax for writing function expressions. They also lexically bind the this value, making it easier to access the correct context.
+
+2. `let and const`: let and const are block-scoped variables that provide an alternative to var. let is used for variables that can be reassigned, while const is used for variables that are not meant to be reassigned.
+
+3. `Template Literals`: Template literals allow for easier string interpolation and multiline strings using backticks (`).
+
+4. `Default Parameters`: Functions can now have default parameter values, which are used if no argument is provided or if the argument is undefined.
+    ```
+    function greet(name = 'Anonymous') {
+        console.log(`Hello, ${name}!`);
+    }
+    greet(); // Output: Hello, Anonymous!
+    greet('John'); // Output: Hello, John!
+    ```
+
+5. `Rest and Spread Operators`: The rest parameter (...) allows functions to accept an indefinite number of arguments as an array. The spread operator (...) allows arrays and objects to be expanded into individual elements or key-value pairs.
+
+6. `Destructuring Assignment`: Destructuring allows for the extraction of values from arrays or objects into individual variables, making it easier to work with complex data structures.
+
+7. `Classes`: provides a more familiar and concise way to define classes and constructor functions in JavaScript.
+
+8. `Modules`: standardized way to organize and reuse code, allowing for better code organization and maintainability.
+
+9. `Promises`: cleaner way to work with asynchronous code, making it easier to manage callbacks and handle errors.
+
+10. `Symbol`: new primitive data type that can be used as unique identifiers, helping to `prevent naming conflicts in objects`.
+
+---
+
+### Q18. What are conditional statements in JavaScript? 
+these are used to perform different actions based on `different conditions`.  <br />
+
+`if statement` : allows us to execute a block of code only if a specified condition is true.
+
+`if...else statement` : Executes one block of code if a specified condition is true and another block of code if the condition is false.
+
+`if...else if...else statement` : Allows you to check multiple conditions and execute a different block of code for each condition.
+
+`switch statement` : Evaluates an expression and executes a block of code depending on the expression's value. It is an `alternative to chaining multiple if...else if...else statements`.
+
+```
+let a = 10
+switch (a) {
+    case 7:
+        // code to be executed if expression matches value1
+        console.log('7')
+        break;
+    case 10:
+        console.log('10')
+        // code to be executed if expression matches value2
+        break;
+    default:
+        console.log('default')
+        // code to be executed if expression doesn't match any case
+}
+```
+
+`ternary operator` (?:): Provides a shorthand way to write if...else statements in a single line.
+
+### Q19. 
+
+
+
+
+
+
+
+
+
+
 15. How do you create an array in JavaScript? Can you give examples of array methods?
 16. How do you create an object in JavaScript? How do you access object properties?
+
     Control Flow:
-17. What are conditional statements in JavaScript? Can you give an example of an if statement?
 18. What are loops in JavaScript? Can you explain the difference between for loop and while loop?
-19. What are some new features introduced in ES6 (ECMAScript 2015)?
-20. Can you explain the use of arrow functions, template literals, and destructuring in ES6?
+
+
 21. WebStorage, LocalStorage
 22. What is JSON? JSON.parse(), JSON.stringify
 
