@@ -459,25 +459,112 @@ switch (a) {
 
 `ternary operator` (?:): Provides a shorthand way to write if...else statements in a single line.
 
-### Q19. 
+### Q19. What are loops in JavaScript? various types loops in JS. Difference between for...in loop & for...of loop
+loops are used to `repeatedly execute a block of code` `as long as a specified condition is true`.
+1. `for` loop: Executes a block of code a `specified number of times`.
 
+2. `while` loop: Executes a block of code `as long as the specified condition is true`.
+    ```
+    while (condition) {
+        // code to be executed
+    }
+    ```
 
+3. `do...while` loop: Similar to a while loop, but the `block of code is executed` `at least once before the condition is tested`.
+    ```
+    let userInput;
+    do {
+        userInput = prompt("Please enter a number greater than 10:");
+    } while (isNaN(userInput) || parseInt(userInput) <= 10);
+    console.log("Valid input received:", parseInt(userInput));
+    ```
 
+4. `for...in loop`: used to iterate over the keys (property names) of an object.
+    ```
+    const person = {
+        name: 'John',
+        age: 30,
+        occupation: 'Developer'
+    };
+    for (let key in person) {
+        console.log(key + ':', person[key]);
+    }
+    ```
 
+5. `for...of loop`: Iterates over iterable objects like `arrays`, `strings`, `maps`, `sets`, etc. 
+    - it `directly iterates over the values`, not the keys.
+    - It does `not iterate over plain objects`.
+    ```
+    const numbers = [1, 2, 3, 4, 5];
+    for (let number of numbers) {
+        console.log(number);
+    }
+    ```
 
+#### In summary:-  for...in is used to iterate over object keys, while for...of is used to iterate over iterable values.
 
+---
 
+### Q 20. What is WebStoarage?
+Web storage, also known as `DOM storage`, is a mechanism defined by the `Web Storage API` for `storing` `key-value pairs` `locally within a user's browser`.    <br />
+It provides two objects for storing data: `localStorage` and `sessionStorage`.
 
+1. **LocalStorage**:
+- `Data` stored in localStorage `persists even after the browser is closed and reopened`. It has `no expiration time`.
+- The `data stored` in localStorage is `specific to the domain of the website`.
 
+```
+// Storing data in localStorage
+localStorage.setItem('username', 'ravie');
 
-15. How do you create an array in JavaScript? Can you give examples of array methods?
-16. How do you create an object in JavaScript? How do you access object properties?
+// Retrieving data from localStorage
+const value = localStorage.getItem('username');     // 'ravie'
 
-    Control Flow:
-18. What are loops in JavaScript? Can you explain the difference between for loop and while loop?
+// Removing data from localStorage
+localStorage.removeItem('username');
 
+```
 
-21. WebStorage, LocalStorage
-22. What is JSON? JSON.parse(), JSON.stringify
+2. **sessionStorage**:
+- `Data` stored in sessionStorage is `only available` for the `duration of the page session`. It is cleared when the page session ends, typically when the browser tab is closed.
+- Like localStorage, the data stored in sessionStorage is specific to the domain of the website.
 
-23. this keyword
+---
+
+### Q21. What is JSON? JSON.parse(), JSON.stringify.
+JSON (JavaScript Object Notation) :- `data interchange format` that is easy for humans to read and write, and easy for machines to parse and generate. 
+- often used to `exchange data` `between a server and a web application`.
+
+1. `JSON.parse()`: The JSON.parse() method is used to `parse a JSON string` and `convert it into a JavaScript object`. 
+    - JSON string --------> JavaScript object.
+
+```
+const jsonStr = '{"name": "John", "age": 30}';
+const obj = JSON.parse(jsonStr);
+console.log(obj);           // Output: {"name": "John", "age": 30}
+console.log(obj.name);      // Output: John
+```
+
+2. `JSON.stringify()` : convert a JavaScript object into a JSON string.
+```
+const obj = { name: 'John', age: 30 };
+const jsonStr = JSON.stringify(obj);
+console.log(jsonStr);       // Output: '{"name":"John","age":30}'
+```
+
+---
+
+### Q22. What are logical operators in javascript ?
+In JavaScript, logical operators are used to p`erform logical operations on values`. There are three logical operators:
+
+`Logical AND (&&)`: The logical AND operator `returns true` `if both operands are true`; otherwise, it returns false.
+
+`Logical OR (||)`: The logical OR operator `returns true` `if at least one of the operands is true`; otherwise, it returns false.
+
+`Logical NOT (!)`: The logical NOT operator `returns true` `if the operand is false` and `vice versa`.
+
+---
+
+### Q23. this keyword
+
+---
