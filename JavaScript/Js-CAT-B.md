@@ -345,7 +345,7 @@ JavaScript has several types of scope, including `function scope`, `block scope`
     ```
 3. Lexical Scope
     - Scoping is controlled by the `placement` of functions and blocks in the code.
-    - In lexical scope, a function can access variables defined in its outer function or global scope.
+    - In lexical scope, `a function can access variables defined in its outer function or global scope`.
     ```
         function outerFunction() {
             var outerVar = 'I am an outer variable';
@@ -397,7 +397,7 @@ console.log(greeting); // Output: Hello, Alice!
 
 ---
 
-### Q17. What are some new features introduced in ES6 (ECMAScript 2015)?
+### Q17. What are some new features introduced in ES6 (ECMAScript 2015)?    (ABCD-PR-Tumse)
 ES6, also known as ECMAScript 2015, introduced several new features and improvements to JavaScript. Some of the key features include:
 
 1. `Arrow Functions`: Arrow functions provide a more concise syntax for writing function expressions. They also lexically bind the this value, making it easier to access the correct context.
@@ -406,7 +406,13 @@ ES6, also known as ECMAScript 2015, introduced several new features and improvem
 
 3. `Template Literals`: Template literals allow for easier string interpolation and multiline strings using backticks (`).
 
-4. `Default Parameters`: Functions can now have default parameter values, which are used if no argument is provided or if the argument is undefined.
+4. `Rest and Spread Operators`: The rest parameter (...) allows functions to accept an indefinite number of arguments as an array. The spread operator (...) allows arrays and objects to be expanded into individual elements or key-value pairs.
+
+5. `Destructuring Assignment`: Destructuring allows for the extraction of values from arrays or objects into individual variables, making it easier to work with complex data structures.
+
+6. `Promises`: cleaner way to work with asynchronous code, making it easier to manage callbacks and handle errors.
+
+7. `Default Parameters`: Functions can now have default parameter values, which are used if no argument is provided or if the argument is undefined.
     ```
     function greet(name = 'Anonymous') {
         console.log(`Hello, ${name}!`);
@@ -415,15 +421,9 @@ ES6, also known as ECMAScript 2015, introduced several new features and improvem
     greet('John'); // Output: Hello, John!
     ```
 
-5. `Rest and Spread Operators`: The rest parameter (...) allows functions to accept an indefinite number of arguments as an array. The spread operator (...) allows arrays and objects to be expanded into individual elements or key-value pairs.
+8. `Classes`: provides a more familiar and concise way to define classes and constructor functions in JavaScript.
 
-6. `Destructuring Assignment`: Destructuring allows for the extraction of values from arrays or objects into individual variables, making it easier to work with complex data structures.
-
-7. `Classes`: provides a more familiar and concise way to define classes and constructor functions in JavaScript.
-
-8. `Modules`: standardized way to organize and reuse code, allowing for better code organization and maintainability.
-
-9. `Promises`: cleaner way to work with asynchronous code, making it easier to manage callbacks and handle errors.
+9. `Modules`: standardized way to organize and reuse code, allowing for better code organization and maintainability.
 
 10. `Symbol`: new primitive data type that can be used as unique identifiers, helping to `prevent naming conflicts in objects`.
 
@@ -479,13 +479,15 @@ loops are used to `repeatedly execute a block of code` `as long as a specified c
     console.log("Valid input received:", parseInt(userInput));
     ```
 
-4. `for...in loop`: used to iterate over the keys (property names) of an object.
+4. `for...in loop`: used to `iterate over the keys` (property names) of an object(object, arrays).
     ```
     const person = {
         name: 'John',
         age: 30,
         occupation: 'Developer'
     };
+    const person = ['kishore', 'taher', 'prabhat', 'ravie']
+
     for (let key in person) {
         console.log(key + ':', person[key]);
     }
@@ -506,28 +508,40 @@ loops are used to `repeatedly execute a block of code` `as long as a specified c
 ---
 
 ### Q 20. What is WebStoarage?
-Web storage, also known as `DOM storage`, is a mechanism defined by the `Web Storage API` for `storing` `key-value pairs` `locally within a user's browser`.    <br />
-It provides two objects for storing data: `localStorage` and `sessionStorage`.
+Web storage, also known as `DOM storage`, is a `mechanism` defined by the `Web Storage API` for `storing` `key-value pairs` `locally within a user's browser`.    <br />
+It provides two `objects` for storing data: `localStorage` and `sessionStorage`.
 
 1. **LocalStorage**:
 - `Data` stored in localStorage `persists even after the browser is closed and reopened`. It has `no expiration time`.
 - The `data stored` in localStorage is `specific to the domain of the website`.
+- Stores data with no expiration date, and gets cleared only through JavaScript, or clearing the Browser cache / Locally Stored Data.
+- Storage limit is the maximum amongst the two.
 
 ```
+let obj = {
+  name: "ravi",
+  age: 30,
+};
 // Storing data in localStorage
-localStorage.setItem('username', 'ravie');
+localStorage.setItem("user", JSON.stringify(obj));
 
 // Retrieving data from localStorage
-const value = localStorage.getItem('username');     // 'ravie'
+let result = localStorage.getItem("user");
+const object = JSON.parse(result);
+console.log(object);
+console.log(object.name);
+console.log(object.age);
 
 // Removing data from localStorage
-localStorage.removeItem('username');
-
+localStorage.removeItem("user");
 ```
 
 2. **sessionStorage**:
 - `Data` stored in sessionStorage is `only available` for the `duration of the page session`. It is cleared when the page session ends, typically when the browser tab is closed.
 - Like localStorage, the data stored in sessionStorage is specific to the domain of the website.
+- Data is never transferred to the server.
+- Storage limit is larger than a cookie (at most 5MB).
+Note :- cache < session storage (5MB) < localStorage
 
 ---
 
