@@ -507,7 +507,7 @@ loops are used to `repeatedly execute a block of code` `as long as a specified c
 
 ---
 
-### Q 20. What is WebStoarage?
+### Q20. What is WebStoarage?
 Web storage, also known as `DOM storage`, is a `mechanism` defined by the `Web Storage API` for `storing` `key-value pairs` `locally within a user's browser`.    <br />
 It provides two `objects` for storing data: `localStorage` and `sessionStorage`.
 
@@ -579,6 +579,48 @@ In JavaScript, logical operators are used to p`erform logical operations on valu
 
 ---
 
-### Q23. this keyword
+### Q23. What is this keyword in JavaScript? how does it work? 
+In JavaScript, the `this` keyword `refers to the object to which the current code belongs` or `is being applied to`.
+- It is a special keyword that is `dynamically scoped` and its `value is determined by how a function is called`, rather than where it is declared.
+- The value of this is set when a function is invoked, and it can be determined using `four rules`:
+
+1. `Global Context`: When this is used in the global scope (outside of any function), `it refers to the global object` ( `window in a browser`, global in Node.js).
+2. `Function Context`: When this is used inside a function, its value depends on how the function is called:
+    - If the `function is called as a method of an object` (object.method()) : `this refers to the object that owns the method`.
+    - If the `function is called as a standalone function` (function()) : `this refers to the global object` (`window in a browser`, global in Node.js) or undefined in strict mode.
+    - If the `function is called with new keyword` (new Constructor()), `this refers to the newly created object`.
+3. `Arrow Functions`:  Arrow functions `do not have their own this value`. Instead, they `inherit` the `this value` from the `enclosing lexical context`. This means that the value of this inside an arrow function is the same as the value of this outside the arrow function.
+4. `Explicit Binding`: We can explicitly set the value of this using `call(), apply(), or bind()` methods. `These methods allow us to specify the value of this when calling a function`, regardless of how it is normally called.
 
 ---
+
+### Q24. What is the output?
+```
+const bfObject = {
+  value: 42,
+  gfFunction: function () {
+    setTimeout(function timer () {
+      console.log(this);
+    }, 1000);
+  },
+};
+bfObject.gfFunction();
+```
+
+The output of this code will be the global object (window in a browser, global in Node.js) or undefined in strict mode. This is because the this inside the setTimeout callback function (timer) is not the same as the this inside gfFunction.  <br />
+
+In JavaScript, the value of this is determined by how a function is called. In this case, when gfFunction is called, it sets up a setTimeout to run the timer function after 1000 milliseconds. However, when timer is executed, it is not called as a method of bfObject, so this inside timer does not refer to bfObject. Instead, it refers to the global object or is undefined in strict mode.   <br />
+
+To fix this and make this inside timer refer to bfObject, you can use an arrow function for the timer function, which will inherit the this value from its lexical scope (i.e., the this value of gfFunction):
+
+```
+const bfObject = {
+  value: 42,
+  gfFunction: function () {
+    setTimeout(() => {
+      console.log(this);
+    }, 1000);
+  },
+};
+bfObject.gfFunction(); // Output: { value: 42, gfFunction: [Function: gfFunction] }
+```
