@@ -302,7 +302,6 @@ Shallow copy and deep copy are two ways to copy objects in JavaScript, each with
     obj.prop3 = "New property"; // Attempting to add a new property                     ❌
     console.log(obj);           // Output: { prop1: 1, prop2: "Hello" }                 
     ```
-
 5. `Object.seal(obj)`: `cannot add or delete, but we can modify any properties`
     ```
     let obj = {
@@ -336,7 +335,7 @@ Shallow copy and deep copy are two ways to copy objects in JavaScript, each with
 - unshift():      ✅
 - sort():         ✅
 
-
+array = ['a', 'k', 'r', 'k', 'p', 'k', 't']
 #### Array Methods (Less Imp)  
 - indexOf() and lastIndexOf():    ✅
 - some() and every():             ✅
