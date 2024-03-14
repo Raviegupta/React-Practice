@@ -199,3 +199,153 @@ The DOM provides a way for scripts to dynamically update and interact with the c
 
 ---
 
+### Q7. How do you add or remove classes from an element using JavaScript?
+To add or remove classes from an element using JavaScript, you can use the classList property.
+
+1. `Adding a Class`: Use the `classList.add()` method 
+    ```
+    // Select the element
+    const element = document.getElementById('myElement');
+
+    // Add a class
+    element.classList.add('myClass');
+    ```
+
+2. `Removing a Class`: Use the `classList.remove()` method to remove a class from an element.
+    ```
+    // Remove a class
+    element.classList.remove('myClass');
+    ```
+
+3. `Toggling a Class`: Use the `classList.toggle()` method to toggle a class on an element. If the class is present, it will be removed. If it's not present, it will be added.
+    ```
+    // Toggle a class
+    element.classList.toggle('myClass');
+    ```
+
+4. `classList.contains()`: Checks if the element has a specific class. Returns `true if the class exists`, otherwise false.
+    ```
+    if (element.classList.contains('myClass')) {
+      // write logic here
+    }
+    ```
+
+---
+
+### Q8. How do we use styles, and attributes in the DOM dynamically?
+- Manipulating Styles and attributes:
+
+    ```
+    <style>
+      :root { --color-primary:beige; }
+      body{ background-color: var(--color-primary); }
+      ul { padding: 0; list-style-type: none; }
+      li { padding: 10px; margin-bottom: 5px; background-color: lightblue; cursor: pointer; }
+    </style>
+
+    <img class="image" src="./images/DOM-API.png" alt="imp-array-methods" width="600" designer="ravie" data-version-number='3.0' />
+    <ul id="category">
+      <li id="laptop">laptops</li>
+      <li id="mobile">Mobiles</li>
+      <li id="shoes">Shoes</li>
+    </ul>
+
+
+    <script>
+      const cat = document.getElementById("category");    // Get a reference to the element
+
+      // Styles (set as inline styles)
+      cat.style.backgroundColor = "#37383d";
+      cat.style.padding = "10px";
+
+      console.log(cat.style.backgroundColor);
+      console.log(cat.style.padding);
+      console.log(getComputedStyle(cat))            // To get other than inline styles, we can use this
+      console.log(getComputedStyle(cat).color);
+      console.log(getComputedStyle(cat).height);
+
+      // manipulating height dynamically
+      cat.style.height = Number.parseFloat(getComputedStyle(cat).height) + 40 + "px";
+
+      // CHANGING ROOT PROPERTY
+      document.documentElement.style.setProperty('--color-primary', 'orangered')
+
+      // Attributes  (read)
+      const image = document.querySelector('.image')
+      console.log(image.alt)
+      console.log(image.src)
+      console.log(image.className)
+      
+      image.alt = 'Beautiful minimalist image'      // update/changing attribute dynamically
+      console.log(image.alt)
+
+      // Non-Standard attributes
+      console.log(image.designer)                   // undefined
+      console.log(image.getAttribute('designer'))   // special way
+
+      image.setAttribute('company', 'Web Development')
+      console.log(image.getAttribute('company')) 
+      console.log(image.src)  
+      console.log(image.getAttribute('src'))        // relative
+
+      // data-attribute (special kind of attribute that starts with word data)
+      console.log(image.dataset.versionNumber)
+    </script>
+    ```
+---
+
+### Q9. What is a data-attribute in HTML? how to read them from javascript?
+- Data attributes in HTML allow us to store extra information on standard, semantic HTML elements. They are prefixed with `data-` and can be accessed and manipulated using JavaScript.   <br />
+
+    ```
+      <img class="image" src="./images/DOM-API.png" alt="imp-array-methods" width="600" data-version-number='3.0' />
+
+      const image = document.querySelector('.image')
+
+      // read
+      console.log(image.dataset.versionNumber)
+      console.log(image.getAttribute('data-version-number'))      // another way to read
+
+      // set dynamically
+      image.setAttribute('data-custom', 'hello world')
+
+    ```
+
+---
+
+### Q10. What is the difference between innerHTML, textContent and innerText? 
+1. `innerHTML`: Allows us to set or get the HTML content inside an element. When we use innerHTML to set content, it treats the content as actual HTML and parses any HTML tags.
+This means we can insert new elements, including script elements, which will be executed when inserted.
+    ```
+    <div class="div"></div>
+
+    <script>
+      const div = document.querySelector(".div");
+      div.innerHTML = `<p>Lorem, ipsum dolor.</p>`;
+      console.log(div);
+    </script>
+    ```
+
+2. `textContent`: Sets or returns the text content of the specified node, It treats the content `as plain text` and `does not parse HTML`. It will escape any HTML tags, displaying them as text.
+    ```
+    <script>
+      const div = document.querySelector(".div");
+      div.textContent = `<p>Lorem, ipsum dolor.</p>`;
+    </script>
+    ```
+
+3. `innerText`: Similar to textContent, it sets or returns the text content of the specified node. However, `it considers the CSS styling when rendering the text`.  <br />
+
+In summary, innerHTML is used for setting or getting HTML content, textContent is used for setting or getting text content as plain text, and innerText is used for setting or getting text content considering CSS styling.
+
+---
+
+### Q11. How do you prevent the default behavior of an event?
+To prevent the default behavior of an event in JavaScript, we can use the `preventDefault()` method. This method is `available on the event object that is passed to event handlers`. Here's how we can use it:
+```
+element.addEventListener('click', function(event) {
+  event.preventDefault();
+});
+```
+
+---
